@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/mazer-rakham/mazer-site#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
   }
 }
