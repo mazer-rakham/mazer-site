@@ -1,0 +1,22 @@
+{
+  "name": "mazer_rakham",
+  "version": "1.0.0",
+  "description": "new site",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazer-rakham/mazer-site.git"
+  },
+  "author": "Thomas Flock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mazer-rakham/mazer-site/issues"
+  },
+  "homepage": "https://github.com/mazer-rakham/mazer-site#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
