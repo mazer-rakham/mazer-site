@@ -18,7 +18,9 @@
   "homepage": "https://github.com/mazer-rakham/mazer-site#readme",
   "devDependencies": {
     "browser-sync": "^2.16.0",
+    "grunt-php": "^1.5.1",
     "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
     "gulp-connect-php": "0.0.8",
     "gulp-sass": "^2.3.2"
   }

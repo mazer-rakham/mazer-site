@@ -1,7 +1,8 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    php = require('gulp-connect-php'),
+    browserSync = require('browser-sync');
 var sass = require('gulp-sass');
-var browserSync = require('browser-sync').create();
-var connect = require('gulp-connect-php');
+var reload  = browserSync.reload;
 gulp.task('sass', function(){
     return gulp.src('app/scss/**/*.scss')
     .pipe(sass())
@@ -10,16 +11,20 @@ gulp.task('sass', function(){
         stream: true
     }))
 });
-gulp.task('watch', ['browserSync', 'sass'],function(){
-    gulp.watch('app/scss/**/*.scss',['sass']);
-    gulp.watch('app/*.html')
-    gulp.watch('app/*.php')
-    gulp.watch('app/js/**/*.js')
+gulp.task('php', function() {
+    php.server({ base: 'app', port: 8010, keepalive: true});
 });
-gulp.task('browserSync', function(){
-    browserSync.init({
-        server: {
-            baseDir: 'app'
-        },
+gulp.task('browser-sync',['php'], function() {
+    browserSync({
+        proxy: '127.0.0.1:8010',
+        port: 8080,
+        open: true,
+        notify: false
     });
+});
+gulp.task('default', ['browser-sync','sass'], function () {
+    gulp.watch(['app/*.php'], [reload]);
+    gulp.watch('app/scss/**/*.scss',['sass']);
+    gulp.watch('app/**/*.php')
+    gulp.watch('app/js/**/*.js')
 });
